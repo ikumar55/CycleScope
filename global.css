@@ -1,0 +1,118 @@
+/* global.css */
+body {
+    font: 100%/1.5 system-ui, sans-serif;
+    display: flex;
+    flex-flow: column;
+    max-width: 80em;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1em;
+  }
+
+
+
+  header {
+    display: flex;
+    gap: 1em;
+    align-items: baseline;
+    /* Feel free to adjust spacing or alignment */
+  }
+  
+  #time-filter {
+    /* Push it to the right as before, if you want */
+    margin-left: auto;
+  
+    /* We’ll stack top-row and bottom-row vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  
+  /* Top row: "Filter by time:" + the slider on one line */
+  #time-filter .top-row {
+    display: flex;
+    align-items: center; /* keeps them aligned horizontally */
+    gap: 0.5em;
+  }
+  
+  /* Bottom row: time + (any time) on the right side, 
+     directly underneath the slider. */
+  #time-filter .bottom-row {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end;  /* push them all the way to the right */
+    width: 100%;                /* so the "right" aligns under the slider */
+  }
+  
+  /* Optional: you can tweak these for spacing or styling */
+  #selected-time {
+    font-weight: bold;
+  }
+  #any-time {
+    color: #999;
+    font-style: italic;
+  }
+  
+  #selected-time {
+    display: block;      /* ensures it's on its own line if needed */
+    margin-left: 0.5em;  /* spacing from slider */
+  }
+  
+  #any-time {
+    display: block;
+    color: #999;
+    font-style: italic;
+    margin-left: 0.5em;
+  }
+  
+
+
+  #time-slider {
+    width: 350px; /* or however long you want the slider to be */
+  }
+
+
+
+  .swatch {
+    /* Reuse your custom property colors from the circles: */
+    --color-departures: steelblue;
+    --color-arrivals: darkorange;
+    --color: color-mix(
+      in oklch,
+      var(--color-departures) calc(100% * var(--departure-ratio)),
+      var(--color-arrivals)
+    );
+  
+    /* Swatch shape & size */
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;  /* makes the swatch a circle */
+    background: var(--color);
+    display: inline-block;
+  }
+  
+
+
+
+  .legend {
+    display: flex;          /* Make them appear side-by-side */
+    align-items: center;    /* Vertically center items */
+    gap: 2em;               /* Spacing between legend items */
+    margin: 1em 0;          /* Some space above/below the legend */
+  }
+  
+  .legend-title {
+    /* Lighter/darker shade of black or gray for "Legend:" */
+    color: #666;            /* or #888, #999, etc. */
+    font-weight: normal;    /* or keep it bold if you like */
+    margin-right: 0.5em;    /* small space after the label */
+  }
+  
+  .legend-item {
+    display: flex;          /* Each item has a swatch + text side-by-side */
+    align-items: center;    /* Center them vertically */
+    gap: 0.5em;             /* Space between the swatch and text */
+  }
+  
